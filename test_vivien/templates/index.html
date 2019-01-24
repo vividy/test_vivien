@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="jumbotron">
-    <h1>My fake blog!</h1>
+    <h1>My test :)</h1>
     {% if user.is_authenticated %}
       <p>Logged as {{ user.username }}</p>
       <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
@@ -31,10 +31,12 @@
     </form>
   </div>
   <div class="container-fluid">
+  {% load static %}
   {% for document in documents %}
     <div>
       <!-- <h2>{{ post. }}</h2> -->
       <p>{{ document.description }}</p>
+      <iframe src="{{ document.document }} width="600" height="800" align="middle"></iframe>
       <!-- <p>Posted by {{ post.user.username }} | {{ post.date }}</p> -->
     </div>
   {% endfor %}

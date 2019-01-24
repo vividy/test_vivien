@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
@@ -15,5 +17,5 @@ def index(request):
         form = DocumentForm()
     return render(request, 'index.html', {
         'form': form,
-        'documents': Document.objects.all()
+        'documents': Document.objects.all(),
     })
