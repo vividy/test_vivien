@@ -21,6 +21,6 @@ from django.conf import settings
 urlpatterns = [
     path('app/', include('app.urls')),
     path('', include('social_django.urls', namespace='social')),
-    path('logout/', LogoutView, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    path('logout/', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     path('admin/', admin.site.urls),
 ]
