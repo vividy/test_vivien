@@ -16,6 +16,3 @@ Test technique de vivien pour Testia
 ## Django admin:
 - user: vividy
 - password: Azerty123
-
-## Dernier bug a corriger:
-- Impossible de visualiser un pdf

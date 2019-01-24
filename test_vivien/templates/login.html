@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Test technique</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>Connection</h1>
+    {% if user.is_authenticated %}
+      <p>Voulez-vous vous déconnecter?</p>
+      <a class="btn btn-primary" href="{% url 'logout' %}">Déconection</a>
+      <p>Ou retourner a l'acceuil??</p>
+      <a class="btn btn-primary" href="/">Acceuil</a>
+    {% else %}
+      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+        Connection avec google
+      </a>
+    {% endif %}
+</body>
+</html>

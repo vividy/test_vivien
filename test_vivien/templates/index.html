@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>My test :)</title>
+  <title>Test technique</title>
 
   <link
     rel="stylesheet"
@@ -13,35 +13,35 @@
 </head>
 <body>
   <div class="jumbotron">
-    <h1>My test :)</h1>
+    <h1>Acceuil</h1>
     {% if user.is_authenticated %}
-      <p>Logged as {{ user.username }}</p>
+      <p>Bonjour {{ user.username }}</p>
       <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
     {% else %}
-      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
-        Login
+      <a class="btn btn-primary" href="{% url 'login' %}">
+        Please login
       </a>
     {% endif %}
   </div>
-  <div>
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Upload</button>
-    </form>
-  </div>
-  <div class="container-fluid">
-  {% load static %}
-  {% for document in documents %}
-    <div  style= "border-width:3px; border-style:solid; border-color:black">
-      <!-- <h2>{{ post. }}</h2> -->
-      <p>{{ document.description }}</p>
-      <a href="{{ document.document }}">Agrandir</a>
-      <iframe src="{{ document.document }}" width="250" height="300" align="middle"></iframe>
-      <p>Emis le {{ document.uploaded_at }}</p>
-      <!-- {{ post.user.username }} -->
+    {% if user.is_authenticated %}
+    <div>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+      </form>
     </div>
-  {% endfor %}
+    <div class="container-fluid">
+    {% load static %}
+    {% for document in documents %}
+      <div  style= "border-width:3px; border-style:solid; border-color:black">
+        <p>{{ document.description }}</p>
+        <a href="{{ document.document }}">Agrandir</a>
+        <iframe src="{{ document.document }}" width="250" height="300" align="middle"></iframe>
+        <p>Emis le {{ document.uploaded_at }}</p>
+      </div>
+    {% endfor %}
+    {% endif %}
   </div>
 </body>
 </html>
