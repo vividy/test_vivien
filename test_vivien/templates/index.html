@@ -16,7 +16,7 @@
     <h1>Acceuil</h1>
     {% if user.is_authenticated %}
       <p>Bonjour {{ user.username }}</p>
-      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+      <a class="btn btn-primary" href="{% url 'logout' %}">Déconnection</a>
     {% else %}
       <a class="btn btn-primary" href="{% url 'login' %}">
         Connectez-vous
