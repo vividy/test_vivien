@@ -138,10 +138,4 @@ USE_TZ = True
 
 STATIC_URL = '/documents/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'test_vivien', 'staticfiles')
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "/../documents/"),
-    "test_vivien/documents",
-    "/home/vividy/test_vivien/test_vivien/documents"
-]
+STATIC_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/documents"

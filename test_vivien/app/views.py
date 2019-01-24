@@ -17,5 +17,5 @@ def index(request):
         form = DocumentForm()
     return render(request, 'index.html', {
         'form': form,
-        'documents': Document.objects.all(),
+        'documents': Document.objects.all().order_by('-uploaded_at')[:20],
     })
